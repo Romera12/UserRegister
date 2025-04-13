@@ -17,12 +17,12 @@ export class UserFormComponent {
   route = inject(ActivatedRoute);
   title = signal('Registrar');
 
-  // 🔹 Signal reactiva para obtener el ID desde la URL
+
   idUser = computed(() => this.route.snapshot.paramMap.get('id') ?? '');
 
   user = signal<IUser | null>(null);
 
-  // 🔹 Se inicializa vacío para evitar el error de Angular Forms
+ 
   userForm: FormGroup = new FormGroup({
     _id: new FormControl(null, []),
     username: new FormControl('', [Validators.required]),
@@ -33,14 +33,14 @@ export class UserFormComponent {
   });
 
   constructor() {
-    // 🔹 Efecto reactivo para obtener el usuario cuando cambie el ID
+   
     effect(async () => {
       if (this.idUser()) {
         try {
           const fetchedUser = await this.userService.getById(this.idUser());
           this.user.set(fetchedUser);
           this.title.set('Actualizar');
-          this.initForm(fetchedUser); // 🔹 Se actualiza el formulario con los datos del usuario
+          this.initForm(fetchedUser); 
         } catch (msg: any) {
           Swal.fire('¡Error!', msg.error, 'error');
         }
@@ -48,7 +48,6 @@ export class UserFormComponent {
     });
   }
 
-  // 🔹 Método para actualizar los valores del formulario cuando haya datos
   initForm(userData?: IUser) {
     this.userForm.setValue({
       _id: userData?._id || null,

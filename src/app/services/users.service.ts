@@ -23,7 +23,7 @@ export class UsersService {
     total_pages: number;
     results: IUser[];
   }> {
-    // Concatena el parámetro page en la URL
+
     return lastValueFrom(
       this.httpClient.get<{
         page: number;
@@ -46,7 +46,7 @@ export class UsersService {
   }
 
   update(user: IUser): Promise<IUser> {
-    //destructuring
+ 
     let { _id, ...userBody } = user;
     return lastValueFrom(
       this.httpClient.put<IUser>(`${this.endPoint}/${_id}`, userBody)

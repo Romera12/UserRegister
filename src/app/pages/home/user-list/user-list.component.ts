@@ -26,7 +26,7 @@ export class UserListComponent {
       const response = await this.userServices.getAll(page);
       this.arrUsers = response.results;
       this.currentPage = response.page;
-      this.totalPages = response.total_pages; // Usamos el nombre del API
+      this.totalPages = response.total_pages; 
     } catch (error) {
       console.error('Error en la carga de usuarios:', error);
       this.arrUsers = [];

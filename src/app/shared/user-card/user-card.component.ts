@@ -9,7 +9,7 @@ import { IUser } from '../../interfaces/iuser.interface';
   imports: [ButtonsComponent]
 })
 export class UserCardComponent {
-  @Input() myUser!: IUser; // Recibe el objeto usuario IUser
+  @Input() myUser!: IUser;
   @Output() deleteItemEmit: EventEmitter<Boolean> = new EventEmitter();
 
   deleteUser(event: Boolean) {

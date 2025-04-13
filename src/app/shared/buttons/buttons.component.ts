@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
   selector: 'app-buttons',
   imports: [RouterModule],
   templateUrl: './buttons.component.html',
-  styleUrl: './buttons.component.css'
+  styleUrl: './buttons.component.css',
 })
 export class ButtonsComponent {
   @Input() myUser: IUser | any;
@@ -24,16 +24,13 @@ export class ButtonsComponent {
       confirmButtonColor: 'red',
       cancelButtonColor: '#3085d6',
       confirmButtonText: 'Sí, eliminar',
-      cancelButtonText: 'Cancelar'
+      cancelButtonText: 'Cancelar',
     }).then(async (result) => {
       if (result.isConfirmed) {
-        await this.userService.delete(id)
+        await this.userService.delete(id);
         if (this.deleteItemEmit.observed) {
           this.deleteItemEmit.emit(true);
-          Swal.fire(
-            'El usuario ha sido eliminado correctamente.',
-          );
-
+          Swal.fire('El usuario ha sido eliminado correctamente.');
         } else {
           this.router.navigate(['/home']);
         }
@@ -41,6 +38,3 @@ export class ButtonsComponent {
     });
   }
 }
-
-
-
