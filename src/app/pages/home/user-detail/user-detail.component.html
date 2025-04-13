@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <div class="card border-0 shadow-sm mx-auto">
+    <div class="card-body p-4">
+      <div class="row g-0">
+        <!-- Profile Image Column -->
+        <div class="col-md-4 text-center">
+          <div
+            class="bg-primary rounded-circle mx-auto d-flex align-items-center justify-content-center overflow-hidden"
+            style="width: 150px; height: 150px">
+            <img
+              src="{{user?.image}}"
+              alt="User Profile"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+
+        <!-- Vertical Divider -->
+        <div class="col-md-1 d-flex justify-content-center">
+          <div class="vr h-100"></div>
+        </div>
+
+        <!-- User Information Column -->
+        <div class="col-md-7">
+          <div class="ps-md-2">
+            <h5 class="mb-1">{{user?.first_name}}</h5>
+            <h6 class="mb-3 text-muted">{{user?.last_name}}</h6>
+
+            <div class="mb-2">
+              <span class="fw-bold me-2">Username:</span>
+              <span class="text-muted">{{user?.username}}</span>
+            </div>
+
+            <div class="mb-4">
+              <span class="fw-bold me-2">Email:</span>
+              <span class="text-muted">{{user?.email}}</span>
+            </div>
+
+            <!-- Action Buttons -->
+            <app-buttons [myUser]="user" [ocultar]="true"></app-buttons>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

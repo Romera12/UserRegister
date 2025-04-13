@@ -1,1 +1,20 @@
-<p>user-card works!</p>
+<div class="">
+    <div class="card border p-5 text-center">
+      <div class="mx-auto mb-3">
+        <div
+          class="bg-primary rounded-circle d-flex align-items-center justify-content-center"
+          style="width: 100px; height: 100px; overflow: hidden"
+        >
+          <img
+            [src]="myUser.image"
+            alt="User Profile"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+      <p class="mb-3 fs-6">{{ myUser.first_name }}</p> 
+  
+     
+      <app-buttons [myUser]="myUser" (deleteItemEmit)="deleteUser($event)"></app-buttons>
+    </div>
+  </div>

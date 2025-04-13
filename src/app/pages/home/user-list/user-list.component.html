@@ -1,0 +1,27 @@
+<h2>Lista de Usuarios</h2>
+<div class="container mt-4">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    @for(user of arrUsers; track user._id) {
+      <div class="col">
+        <app-user-card [myUser]="user" (deleteItemEmit)="deleteUser($event)"></app-user-card>
+      </div>
+    }
+  </div>
+  <!-- Pagination -->
+  <nav>
+    <ul class="pagination justify-content-center">
+      @for (item of getPages(); track item.page) {
+        <li class="page-item" [class.active]="item.page === currentPage">
+          <a class="page-link "
+             (click)="changePage(item.page)"
+             [class.bg-secondary]="item.page === currentPage"
+             [class.text-white]="item.page === currentPage"
+             [class.border-secondary]="item.page === currentPage"
+             style="transition: all 0.3s ease;">
+            {{ item.page }}
+          </a>
+        </li>
+      }
+    </ul>
+  </nav>
+</div>

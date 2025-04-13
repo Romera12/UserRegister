@@ -1,0 +1,41 @@
+<div class="container mt-2">
+  <div class="row">
+      <div class="col-md-12">
+          <h5 class="mb-4">{{userForm.get('_id')?.value ? 'Actualizar' : 'Registrar'}} Nombre de Usuario</h5>
+          <form [formGroup]="userForm" (ngSubmit)="getDataForm()">
+              <input type="hidden" formControlName="_id">
+              <!-- Usuario Tag -->
+              <div class="mb-3">
+                  <label for="username" class="form-label">User tag</label>
+                  <input type="text" class="form-control" id="username" formControlName="username" placeholder="Escriba su user tag">
+              </div>
+
+              <!-- Nombre Usuario -->
+              <div class="mb-3">
+                  <label for="first_name" class="form-label">Nombre Usuario</label>
+                  <input type="text" class="form-control" id="nombreUsuario" formControlName="first_name" placeholder="Escriba el nombre del usuario">
+              </div>
+              
+              <!-- Apellido Usuario -->
+              <div class="mb-3">
+                  <label for="last_name" class="form-label">Apellido Usuario</label>
+                  <input type="text" class="form-control" id="last_name" formControlName="last_name" placeholder="Escriba el apellido del usuario">
+              </div>
+              
+              <!-- Email Usuario -->
+              <div class="mb-3">
+                  <label for="email" class="form-label">Email Usuario</label>
+                  <input type="email" class="form-control" id="email" formControlName="email" placeholder="usuario@email.com">
+              </div>
+              
+              <!-- Imagen Usuario -->
+              <div class="mb-4">
+                  <label for="image" class="form-label">Imagen Usuario</label>
+                  <input type="text" class="form-control" id="image" formControlName="image" placeholder="Introduzca la URL de la imagen">
+              </div>
+              
+              <!-- Submit Button -->
+              <input type="submit" class="btn btn-primary" [value]="userForm.get('_id')?.value ? 'Actualizar' : 'Registrar'">
+          </form>
+      </div>
+  </div>
